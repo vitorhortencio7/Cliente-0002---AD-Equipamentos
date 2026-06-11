@@ -1,0 +1,6 @@
+{
+  "name": "AD Equipamentos",
+  "description": "Landing page de alta conversão para a AD Equipamentos - Projetos Comerciais, Layouts 3D e Equipamentos de Refrigeração.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
