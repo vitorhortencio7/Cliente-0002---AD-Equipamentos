@@ -90,12 +90,32 @@ export default function Footer() {
         </div>
 
         {/* Legal Disclaimer panel */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-500 font-sans">
-          <p>© {currentYear} AD Equipamentos de Refrigeração e Instalações Comerciais Ltda. Todos os direitos reservados.</p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-slate-400 transition-colors">Políticas de Privacidade</a>
-            <span>•</span>
-            <a href="#" className="hover:text-slate-400 transition-colors">Termos de Uso</a>
+        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-[10px] text-slate-500 font-sans mt-4">
+          <p className="text-center lg:text-left">© {currentYear} AD Equipamentos de Refrigeração e Instalações Comerciais Ltda. Todos os direitos reservados.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="flex gap-4">
+              <a href="#" className="hover:text-slate-400 transition-colors">Políticas de Privacidade</a>
+              <span>•</span>
+              <a href="#" className="hover:text-slate-400 transition-colors">Termos de Uso</a>
+            </div>
+            <div className="flex items-center gap-2.5 border-t sm:border-t-0 border-slate-900 pt-3 sm:pt-0 sm:border-l sm:border-slate-100/10 sm:pl-6">
+              <span className="text-slate-500 font-semibold tracking-widest uppercase text-[8px] font-mono select-none">Desenvolvido por</span>
+              <a 
+                href="https://wa.me/5585994033053?text=Ol%C3%A1%20VH%20Design%2C%20vi%20seu%20trabalho%20no%20site%20da%20AD%20Equipamentos!" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all duration-300"
+                title="Conheça a VH Design"
+              >
+                <span className="font-display font-extrabold text-[10px] tracking-wider text-slate-400 hover:text-white transition-colors">VH DESIGN</span>
+                <img 
+                  src="https://i.ibb.co/B5QnqfTc/Logo-VH.png" 
+                  alt="VH Design Logo" 
+                  className="h-5 w-auto object-contain brightness-100 drop-shadow-[0_2px_10px_rgba(255,255,255,0.08)]" 
+                  referrerPolicy="no-referrer"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
