@@ -1,4 +1,5 @@
 import React from 'react';
+import { Instagram } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils';
 
 export default function Footer() {
@@ -23,23 +24,28 @@ export default function Footer() {
           
           {/* Logo & Slogan Column */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <svg
-                viewBox="0 0 100 80"
-                className="w-7 h-7 fill-none stroke-current"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M15,70 L45,15 L60,15" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" className="stroke-brand-orange" />
-                <path d="M25,50 L52,50" strokeWidth="6" strokeLinecap="round" className="stroke-white" />
-                <path d="M48,15 L70,15 C85,15 90,28 90,42 C90,58 82,70 65,70 L40,70" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" className="stroke-brand-gold" />
-              </svg>
-              <span className="font-display font-black text-sm tracking-widest text-white uppercase">
-                AD <span className="text-brand-orange font-light">EQUIPAMENTOS</span>
-              </span>
+            <div className="flex items-center">
+              <img
+                src="https://i.ibb.co/Kjqm3xrJ/Logo-Branca.png"
+                alt="AD Equipamentos"
+                className="h-10 w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed font-sans">
               Especialistas em projetos em maquetes 3D, layouts inteligentes e refrigeração de alta performance para supermercados, açougues e comércios de elite no Nordeste.
             </p>
+            <div className="flex items-center gap-3 pt-1">
+              <a
+                href="https://www.instagram.com/ad.equipamentosce/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-slate-900/60 hover:bg-slate-900 hover:text-white text-slate-400 px-3 py-1.5 rounded-lg border border-slate-800/80 text-[10px] font-mono tracking-wider uppercase font-extrabold transition-all group"
+              >
+                <Instagram className="w-3.5 h-3.5 text-pink-500 group-hover:scale-110 transition-transform" />
+                <span>Instagram</span>
+              </a>
+            </div>
           </div>
 
           {/* Shortcut links Column */}
@@ -80,7 +86,7 @@ export default function Footer() {
               </div>
               <div className="space-y-2">
                 <p className="font-semibold text-white">Canais de Contato</p>
-                <p className="font-mono">📱 WhatsApp: (85) 99403-3053</p>
+                <p className="font-mono">📱 WhatsApp: (85) 9403-3053</p>
                 <p className="font-mono">🕒 Seg a Sex: 08h às 18h</p>
                 <p className="font-mono">🕒 Sábado: 08h às 12h</p>
               </div>
@@ -101,7 +107,7 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 border-t sm:border-t-0 border-slate-900 pt-3 sm:pt-0 sm:border-l sm:border-slate-100/10 sm:pl-6">
               <span className="text-slate-500 font-semibold tracking-widest uppercase text-[8px] font-mono select-none">Desenvolvido por</span>
               <a 
-                href="https://wa.me/5585994033053?text=Ol%C3%A1%20VH%20Design%2C%20vi%20seu%20trabalho%20no%20site%20da%20AD%20Equipamentos!" 
+                href="https://wa.me/558594033053?text=Ol%C3%A1%20VH%20Design%2C%20vi%20seu%20trabalho%20no%20site%20da%20AD%20Equipamentos!" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all duration-300"

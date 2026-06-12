@@ -13,14 +13,10 @@ import Timeline from './components/Timeline';
 import FAQForm from './components/FAQForm';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
-import PrototypeModal from './components/PrototypeModal';
 
 export default function App() {
   return (
     <div className="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-brand-orange selection:text-zinc-950 overflow-x-hidden min-h-screen">
-      {/* 0. Initial Temporary Prototype Warning Modal */}
-      <PrototypeModal />
-
       {/* 1. Header Navigation */}
       <Header />
 

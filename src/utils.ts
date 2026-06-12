@@ -3,8 +3,8 @@
  */
 
 export function getWhatsAppUrl(message?: string): string {
-  // Brazilian code: 55 + DDD: 85 + number: 994033053
-  const cleanPhone = "5585994033053";
+  // Brazilian code: 55 + DDD: 85 + number: 94033053
+  const cleanPhone = "558594033053";
   if (message) {
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
   }

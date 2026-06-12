@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, MessageSquare, Phone } from 'lucide-react';
+import { Menu, X, MessageSquare, Phone, Instagram } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -39,56 +39,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo AD Equipamentos */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className={`relative w-12 h-10 flex items-center justify-center rounded border transition-colors ${
-              isScrolled 
-                ? 'bg-slate-50 border-slate-200 group-hover:border-brand-orange' 
-                : 'bg-zinc-900/60 border-zinc-800 group-hover:border-brand-orange'
-            }`}>
-              <svg
-                viewBox="0 0 100 80"
-                className="w-8 h-8 fill-none stroke-current"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Left line representing A of AD */}
-                <path
-                  d="M15,70 L45,15 L60,15"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="stroke-brand-orange"
-                />
-                {/* Cross line of A */}
-                <path
-                  d="M25,50 L52,50"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                  className={isScrolled ? "stroke-slate-800" : "stroke-white"}
-                />
-                {/* Segment D */}
-                <path
-                  d="M48,15 L70,15 C85,15 90,28 90,42 C90,58 82,70 65,70 L40,70"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="stroke-brand-gold"
-                />
-              </svg>
-              <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping" />
-            </div>
-            
-            <div className="flex flex-col">
-              <span className={`font-display font-bold text-lg leading-none tracking-wider flex items-center gap-1 transition-colors ${
-                isScrolled ? 'text-slate-900' : 'text-white'
-              }`}>
-                AD <span className="text-brand-orange font-light">EQUIPAMENTOS</span>
-              </span>
-              <span className={`text-[8px] font-mono tracking-[0.25em] uppercase font-bold mt-0.5 transition-colors ${
-                isScrolled ? 'text-slate-500' : 'text-zinc-400'
-              }`}>
-                Projetos & Instalações
-              </span>
-            </div>
+          <a href="#" className="flex items-center group">
+            <img
+              src={isScrolled ? "https://i.ibb.co/KcYSqSw3/Logo-COlorida.png" : "https://i.ibb.co/Kjqm3xrJ/Logo-Branca.png"}
+              alt="AD Equipamentos"
+              className="h-11 sm:h-12 w-auto object-contain transition-all duration-300"
+              referrerPolicy="no-referrer"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -108,15 +65,28 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4.5">
             <a
-              href="tel:85994033053"
+              href="https://www.instagram.com/ad.equipamentosce/"
+              target="_blank"
+              rel="noreferrer"
+              className={`flex items-center gap-1.5 text-xs font-semibold transition-all hover:scale-102 ${
+                isScrolled ? 'text-slate-600 hover:text-pink-600' : 'text-zinc-300 hover:text-pink-500'
+              }`}
+              title="Siga-nos no Instagram"
+            >
+              <Instagram className="w-4 h-4" />
+              <span>Instagram</span>
+            </a>
+            <span className={isScrolled ? "text-slate-200" : "text-zinc-800"}>|</span>
+            <a
+              href="tel:8594033053"
               className={`flex items-center gap-2 text-xs font-mono font-semibold transition-colors ${
                 isScrolled ? 'text-slate-600 hover:text-slate-900' : 'text-zinc-300 hover:text-white'
               }`}
             >
               <Phone className="w-3.5 h-3.5 text-brand-gold" />
-              (85) 99403-3053
+              (85) 9403-3053
             </a>
             <button
               onClick={handleContactClick}
@@ -131,7 +101,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-3">
             <a
-              href="tel:85994033053"
+              href="tel:8594033053"
               className={`p-2 rounded-lg border transition-colors ${
                 isScrolled 
                   ? 'bg-slate-50 border-slate-200 text-slate-700 hover:text-slate-900' 
@@ -190,8 +160,23 @@ export default function Header() {
               </button>
               <p className="text-center font-mono text-xs text-zinc-500 mt-3 flex items-center justify-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                Atendimento Rápido: (85) 99403-3053
+                Atendimento Rápido: (85) 9403-3053
               </p>
+              <div className="flex justify-center mt-3.5">
+                <a
+                  href="https://www.instagram.com/ad.equipamentosce/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`inline-flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-lg border transition-all ${
+                    isScrolled 
+                      ? 'bg-slate-50 border-slate-200 text-slate-700 hover:text-pink-600' 
+                      : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-pink-500'
+                  }`}
+                >
+                  <Instagram className="w-4 h-4 text-pink-500" />
+                  <span>Siga-nos no Instagram</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

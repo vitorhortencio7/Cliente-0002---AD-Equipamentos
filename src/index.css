@@ -10,6 +10,13 @@
   --color-brand-gold: #d4af37;
   --color-whatsapp: #25D366;
   --color-whatsapp-heavy: #128C7E;
+
+  --animate-marquee: marquee 35s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
 }
 
 @layer base {

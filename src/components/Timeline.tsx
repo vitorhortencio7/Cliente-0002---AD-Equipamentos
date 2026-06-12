@@ -1,137 +1,81 @@
-import { MessageSquare, Layout, Sparkles, AlertCircle, CalendarRange } from 'lucide-react';
+import React from 'react';
+import { Sparkles, ArrowRight, MessageSquare, Compass, ShieldCheck } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils';
 import WhatsAppIcon from './WhatsAppIcon';
 
 export default function Timeline() {
-  const steps = [
-    {
-      num: "01",
-      icon: <MessageSquare className="w-6 h-6 text-zinc-950" />,
-      title: "Contato e Briefing Rápido",
-      desc: "Você clica em qualquer botão do site e conversa conosco no WhatsApp. Colhemos as dimensões básicas da sua loja, o segmento de varejo e quais são os seus objetivos e orçamento.",
-      badge: "Início Imediato"
-    },
-    {
-      num: "02",
-      icon: <Layout className="w-6 h-6 text-zinc-950" />,
-      title: "Modelagem & Projeto 3D",
-      desc: "Nossa equipe de engenharia cria o desenho tridimensional fidedigno da sua loja. Você visualiza exatamente o posicionamento de cada gôndola, balcão térmico e iluminação de LED.",
-      badge: "Prazo: 5 a 10 dias"
-    },
-    {
-      num: "03",
-      icon: <Sparkles className="w-6 h-6 text-zinc-950" />,
-      title: "Entrega e Montagem Assistida",
-      desc: "Após aprovação do render 3D, separamos o catálogo e entregamos no endereço da sua loja. Nossa equipe técnica especializada realiza a montagem com precisão cirúrgica de encaixe.",
-      badge: "Inauguração sem Dor de Cabeça"
-    }
-  ];
-
-  const handleTimelineCta = () => {
-    window.open(getWhatsAppUrl(), "_blank");
+  const handleCta = () => {
+    const text = `Olá AD Equipamentos! Vi o convite para receber uma consultoria de layout para minha loja no site e gostaria de agendar um briefing inicial.`;
+    window.open(getWhatsAppUrl(text), "_blank");
   };
 
   return (
-    <section id="projetos" className="py-20 bg-slate-900 border-b border-slate-950 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(242,147,30,0.015),transparent)] pointer-events-none" />
+    <section id="projetos" className="py-24 bg-slate-950 border-b border-zinc-900 relative">
+      {/* Immersive background ambient spotlight */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(242,147,30,0.03),transparent)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Title and Intro */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono tracking-[0.25em] text-brand-orange uppercase font-bold text-brand-orange">Processo Simplificado</span>
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-white mt-3 leading-tight">
-            Passo a Passo Para Sua Loja Moderna
-          </h2>
-          <p className="text-sm sm:text-base text-slate-300 font-sans mt-3">
-            Evite surpresas indesejáveis ou compras de equipamentos no tamanho incorreto. Nosso processo é 100% blindado contra prejuízos.
-          </p>
-        </div>
+        {/* Sleek Minimalist CTA Card Container */}
+        <div className="bg-gradient-to-br from-slate-900 to-slate-900/60 rounded-3xl border border-slate-805/80 p-8 sm:p-14 text-center space-y-8 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          {/* Accent decoration glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-10 bg-brand-orange/15 blur-2xl rounded-full" />
 
-        {/* 3 Steps Flow */}
-        <div className="relative">
-          {/* Central alignment bar for desktop */}
-          <div className="absolute left-[23px] md:left-1/2 top-4 bottom-4 w-0.5 border-l-2 border-dashed border-slate-800 -translate-x-1/2 z-0 hidden md:block" />
-          <div className="absolute left-[27px] top-4 bottom-4 w-0.5 border-l-2 border-dashed border-slate-800 z-0 md:hidden" />
-
-          <div className="space-y-12 md:space-y-16 relative z-10">
-            {steps.map((step, idx) => {
-              const isEven = idx % 2 === 1;
-              return (
-                <div
-                  key={idx}
-                  className={`flex flex-col md:flex-row items-stretch gap-8 ${
-                    isEven ? 'md:flex-row-reverse' : ''
-                  }`}
-                >
-                  {/* Timeline Badge Dot */}
-                  <div className="md:w-1/2 flex items-start justify-start md:justify-end pr-0 md:pr-12 md:text-right">
-                    {!isEven ? (
-                      <div className="space-y-3 pl-12 md:pl-0">
-                        <span className="inline-block text-xs font-mono bg-brand-orange/15 border border-brand-orange/20 text-brand-orange px-3 py-1 rounded font-bold uppercase">
-                          {step.badge}
-                        </span>
-                        <h3 className="font-display font-black text-xl text-white">{step.title}</h3>
-                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mt-2">{step.desc}</p>
-                      </div>
-                    ) : (
-                      // Display a high quality vector wireframe illustration on the opposite side
-                      <div className="hidden md:flex flex-col items-end justify-center w-full h-full p-4 border border-slate-800/80 bg-slate-950/45 rounded-xl">
-                        <CalendarRange className="w-12 h-12 text-slate-700 mb-2" />
-                        <span className="text-[10px] font-mono text-slate-400 block font-semibold">AD DESIGN PROCESS SYSTEM</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Icon Indicator middle Column */}
-                  <div className="flex justify-start md:justify-center items-start pt-1 z-20">
-                    <div className="w-14 h-14 rounded-full bg-brand-gold border-4 border-slate-950 flex items-center justify-center font-display font-black text-slate-950 shadow-[0_0_15px_rgba(212,175,55,0.25)] shrink-0 select-none">
-                      {step.num}
-                    </div>
-                  </div>
-
-                  {/* Content side */}
-                  <div className="md:w-1/2 flex items-start justify-start pl-12 md:pl-12">
-                    {isEven ? (
-                      <div className="space-y-3">
-                        <span className="inline-block text-xs font-mono bg-brand-gold/15 border border-brand-gold/20 text-brand-gold px-3 py-1 rounded font-bold uppercase">
-                          {step.badge}
-                        </span>
-                        <h3 className="font-display font-black text-xl text-white">{step.title}</h3>
-                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mt-2">{step.desc}</p>
-                      </div>
-                    ) : (
-                      // Display a high quality vector wireframe illustration on the opposite side
-                      <div className="hidden md:flex flex-col items-start justify-center w-full h-full p-4 border border-slate-800/80 bg-slate-950/45 rounded-xl">
-                        <CalendarRange className="w-12 h-12 text-slate-700 mb-2" />
-                        <span className="text-[10px] font-mono text-slate-400 block font-bold">PROJETO E MODELAGEM DUAL PLANE</span>
-                      </div>
-                    )}
-                  </div>
-
-                </div>
-              );
-            })}
+          {/* Icon Badge */}
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.25em] text-brand-orange font-extrabold uppercase bg-brand-orange/10 px-4 py-1.5 rounded-full border border-brand-orange/20">
+              <Sparkles className="w-3.5 h-3.5 text-brand-orange animate-pulse" />
+              Parceria de Sucesso
+            </span>
           </div>
-        </div>
 
-        {/* Closing Action Banner for Workflow */}
-        <div id="como_funciona_footer" className="mt-16 bg-slate-950/40 p-6 sm:p-8 rounded-xl border border-slate-800/80 text-center max-w-4xl mx-auto space-y-5">
-          <div className="flex items-center justify-center gap-2 text-brand-orange text-xs font-mono uppercase tracking-widest font-extrabold">
-            <AlertCircle className="w-4 h-4 text-brand-orange animate-pulse" />
-            <span>Atenção: Agenda de Projetos em Aberto</span>
+          {/* Heading */}
+          <div className="space-y-3.5 max-w-2xl mx-auto">
+            <h2 className="font-display font-black text-2xl sm:text-4.5xl text-white leading-tight">
+              Sua Loja Pronta Para Faturar de Ponta a Pontas
+            </h2>
+            <p className="text-sm sm:text-base text-slate-350 leading-relaxed font-sans">
+              Desenvolvemos a maquete tridimensional definitiva do seu atacarejo, mercadinho, padaria ou hortifrúti. Oferecemos gôndolas e expositores de refrigeração industrial com fabricação sob medida para o seu sucesso comercial.
+            </p>
           </div>
-          <h3 className="font-display font-bold text-xl sm:text-2xl text-white max-w-2xl mx-auto leading-normal">
-            Garantimos o primeiro rascunho de layout 3D sem custos adicionais ao fechar seu pacote!
-          </h3>
-          <button
-            onClick={handleTimelineCta}
-            id="cta_timeline_whatsapp"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-whatsapp-heavy text-white font-extrabold uppercase text-xs tracking-wider px-6 py-4 rounded-lg transition-all cursor-pointer shadow-[0_4px_12px_rgba(37,211,102,0.2)] hover:shadow-[0_4px_22px_rgba(37,211,102,0.4)]"
-          >
-            <WhatsAppIcon className="w-4 h-4 text-white" />
-            <span>Falar com Projetista & Agendar Briefing</span>
-          </button>
+
+          {/* Mini benefits pills */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-4 pb-2">
+            <div className="bg-slate-950/45 border border-slate-800/80 rounded-xl p-4 flex flex-col items-center text-center space-y-2">
+              <MessageSquare className="w-5 h-5 text-brand-orange shrink-0" />
+              <h4 className="text-xs font-bold text-white uppercase tracking-wider">1. Briefing e Medições</h4>
+              <p className="text-[11px] text-slate-400">Coleta rápida das dimensões e ramo da sua loja pelo WhatsApp.</p>
+            </div>
+
+            <div className="bg-slate-950/45 border border-slate-800/80 rounded-xl p-4 flex flex-col items-center text-center space-y-2">
+              <Compass className="w-5 h-5 text-brand-orange shrink-0" />
+              <h4 className="text-xs font-bold text-white uppercase tracking-wider">2. Maquete 3D Completa</h4>
+              <p className="text-[11px] text-slate-400">Visualização fidedigna de gôndolas, ilhas e fluxos de circulação.</p>
+            </div>
+
+            <div className="bg-slate-950/45 border border-slate-800/80 rounded-xl p-4 flex flex-col items-center text-center space-y-2">
+              <ShieldCheck className="w-5 h-5 text-brand-orange shrink-0" />
+              <h4 className="text-xs font-bold text-white uppercase tracking-wider">3. Montagem & Entrega</h4>
+              <p className="text-[11px] text-slate-400">Suporte profissional na montagem técnica e instalação de expositores.</p>
+            </div>
+          </div>
+
+          {/* Conversion Button */}
+          <div className="pt-4 flex flex-col items-center gap-3">
+            <button
+              onClick={handleCta}
+              id="cta_minimalist_timeline_whatsapp"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-whatsapp hover:bg-whatsapp-heavy text-white font-black uppercase text-xs sm:text-sm tracking-wider px-10 py-5 rounded-xl transition-all duration-300 shadow-[0_5px_20px_rgba(37,211,102,0.18)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.38)] hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+            >
+              <WhatsAppIcon className="w-5 h-5 text-white" />
+              <span>Agendar Minha Análise Gratuita</span>
+              <ArrowRight className="w-4 h-4 text-white" />
+            </button>
+            <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">
+              Projetos 3D iniciais elaborados em tempo recorde!
+            </span>
+          </div>
+
         </div>
 
       </div>

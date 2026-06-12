@@ -25,12 +25,12 @@ export default function SocialProof() {
   ];
 
   const partnerBrands = [
-    { name: "Gelopar", quality: "Refrigeração Comercial Elite" },
-    { name: "Fricon", quality: "Tecnologia de Frio Européia" },
-    { name: "Metalfrio", quality: "Líder Global em Expositores" },
-    { name: "Eletrofrio", quality: "Sistemas Integrados de Frio" },
-    { name: "Felesa", quality: "Gôndolas e Checkstands" },
-    { name: "Usiaço", quality: "Estruturas de Aço Pesadas" }
+    { name: "Gelopar", logo: "https://i.ibb.co/CKCdYSdY/Gelopar.png", quality: "Refrigeração Comercial Elite" },
+    { name: "Fricon", logo: "https://i.ibb.co/rfLGFKcr/Fricon.png", quality: "Tecnologia de Frio Européia" },
+    { name: "Metalfrio", logo: "https://i.ibb.co/JF2CzzTP/Metal-frio.png", quality: "Líder Global em Expositores" },
+    { name: "Eletrofrio", logo: "https://i.ibb.co/p6jKtnGP/eletrofrio.png", quality: "Sistemas Integrados de Frio" },
+    { name: "Felesa", logo: "https://i.ibb.co/1GvL1bZw/Felesa.png", quality: "Gôndolas e Checkstands" },
+    { name: "Usiaço", logo: "https://i.ibb.co/jkV1XsxL/Usia-o.png", quality: "Estruturas de Aço Pesadas" }
   ];
 
   return (
@@ -98,27 +98,39 @@ export default function SocialProof() {
           </div>
         </div>
 
-        {/* Partners section with monochrome aesthetic */}
-        <div id="parceiros_ticker" className="mt-20 space-y-6">
+        {/* Partners section with logo images and infinite smooth loop carousel */}
+        <div id="parceiros_ticker" className="mt-20 space-y-8">
           <div className="text-center max-w-sm mx-auto">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold block">Distribuidor Oficial de Marcas Líderes</span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-extrabold block">Distribuidor Oficial de Marcas Líderes</span>
             <div className="h-0.5 bg-gradient-to-r from-transparent via-brand-orange/30 to-transparent mt-2" />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 pt-4">
-            {partnerBrands.map((brand, i) => (
-              <div
-                key={i}
-                className="bg-white p-4 rounded-xl border border-slate-200/80 flex flex-col items-center justify-center text-center hover:bg-slate-50 hover:border-slate-350 transition-all duration-200 shadow-sm"
-              >
-                <span className="font-display text-base font-extrabold tracking-wide text-slate-800">
-                  {brand.name}
-                </span>
-                <span className="text-[8px] font-mono text-slate-500 uppercase tracking-widest mt-0.5 font-semibold">
-                  {brand.quality}
-                </span>
-              </div>
-            ))}
+          <div className="relative w-full overflow-hidden">
+            {/* Elegant fade mask overlays for infinite smooth transition */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+
+            {/* Seamless sliding track */}
+            <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused] py-4">
+              {[...partnerBrands, ...partnerBrands, ...partnerBrands].map((brand, i) => (
+                <div
+                  key={i}
+                  className="w-60 bg-white px-6 py-5 rounded-2xl border border-slate-200/80 flex flex-col items-center justify-center text-center shadow-sm hover:border-orange-500/10 hover:shadow-[0_10px_25px_rgba(242,147,30,0.05)] transition-all duration-300 shrink-0 group select-none"
+                >
+                  <div className="h-16 flex items-center justify-center">
+                    <img
+                      src={brand.logo}
+                      alt={`Logo ${brand.name}`}
+                      className="h-11 sm:h-12 w-auto object-contain max-w-[190px] opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <span className="text-[8.5px] font-mono text-slate-500 uppercase tracking-wider mt-3 font-semibold select-none group-hover:text-slate-800 transition-colors">
+                    {brand.quality}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

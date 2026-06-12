@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, ShieldCheck, Cpu, Layout, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Cpu, Layout, Sparkles, Instagram } from 'lucide-react';
 import { getWhatsAppUrl, IMAGES } from '../utils';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -104,12 +104,26 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4 text-white relative z-10 transition-transform group-hover:translate-x-1" />
               </button>
 
-              <a
-                href="#simulador"
-                className="flex items-center justify-center gap-2 text-slate-400 hover:text-white transition-colors py-3 text-sm font-semibold border-b border-dashed border-slate-700 hover:border-white"
-              >
-                Simular Solução para Minha Loja
-              </a>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+                <a
+                  href="#simulador"
+                  className="flex items-center justify-center gap-2 text-slate-400 hover:text-white transition-colors py-3 text-sm font-semibold border-b border-dashed border-slate-700 hover:border-white"
+                >
+                  Simular Solução para Minha Loja
+                </a>
+
+                <span className="hidden sm:inline text-slate-800">|</span>
+
+                <a
+                  href="https://www.instagram.com/ad.equipamentosce/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 text-slate-400 hover:text-pink-500 transition-colors py-3 text-sm font-semibold group"
+                >
+                  <Instagram className="w-4 h-4 text-pink-500/80 group-hover:text-pink-500 group-hover:scale-110 transition-all" />
+                  <span>Siga-nos no Instagram</span>
+                </a>
+              </div>
             </motion.div>
 
             {/* Social Trust Badges */}
@@ -117,18 +131,8 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="flex items-center gap-6 pt-4 border-t border-slate-900"
+              className="flex items-center gap-4 pt-4 border-t border-slate-900"
             >
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[10px] font-bold text-white"
-                  >
-                    {i === 4 ? "+50" : `U${i}`}
-                  </div>
-                ))}
-              </div>
               <div>
                 <p className="text-xs text-slate-400 font-sans">
                   Avaliação <strong className="text-white">4.9/5 estrelas</strong> por mais de <strong className="text-white">150 supermercados</strong> parceiros no Ceará.
@@ -145,34 +149,71 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Interactive Floating Card matching image_1.png layout visuals */}
-          <div className="lg:col-span-4 hidden lg:block">
+          {/* Interactive Floating Card featuring custom 3D model with premium glassmorphism */}
+          <div className="lg:col-span-4 hidden lg:block relative">
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="bg-slate-900/65 backdrop-blur-md rounded-xl p-6 border border-slate-800/80 shadow-2xl space-y-4"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                y: [0, -14, 0]
+              }}
+              transition={{
+                opacity: { duration: 1, delay: 0.3 },
+                scale: { duration: 1, delay: 0.3 },
+                y: {
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+              className="relative select-none"
             >
-              <div className="h-44 rounded-lg overflow-hidden relative border border-slate-800">
-                <img
-                  src={IMAGES.refrigeration}
-                  alt="Geladeira Horizontal de Supermercado"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-2 right-2 bg-slate-950/90 text-brand-gold text-[10px] font-mono px-2 py-0.5 rounded border border-slate-800">
-                  EQUIPAMENTO DE ELITE
+              {/* Soft gold/orange backglow light underneath the glass card */}
+              <div className="absolute inset-0 bg-brand-orange/15 rounded-3xl blur-3xl -z-10" />
+
+              {/* Glassmorphic premium container */}
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                {/* Decorative sweeping diagonal reflection light beam */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out font-mono" />
+
+                {/* Floating tags */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[9px] bg-brand-orange/20 text-brand-orange border border-brand-orange/30 px-2.5 py-1 rounded-full font-mono font-bold tracking-widest uppercase">
+                    PROJETO 3D REAL
+                  </span>
+                  <span className="text-[10px] text-zinc-400 font-mono flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-brand-gold rounded-full animate-pulse" /> 
+                    Premium Layout
+                  </span>
                 </div>
-              </div>
-              <div className="space-y-2">
-                <span className="text-[10px] font-mono tracking-wider text-brand-orange font-bold uppercase">Refrigeração & Gôndolas</span>
-                <h3 className="text-lg font-bold text-white">Sistemas Integrados High-Tech</h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Tratados térmicos de última geração, isolamento absoluto contra vibração, iluminação em LED micro-focada que realça fatiados e carnes nobres.
-                </p>
-              </div>
-              <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span>Instalação do zero</span>
-                <span className="text-emerald-400 font-bold">● Aberto 08h às 18h</span>
+
+                {/* The beautiful 3D Maquete image floating inside the card wrapper */}
+                <div className="relative rounded-2xl overflow-hidden border border-white/5 bg-slate-950/20 p-1 group-hover:border-white/10 transition-colors duration-300">
+                  <img
+                    src="https://i.ibb.co/b5j0Nh3P/image-6-RTw7-Ifo1xh-Dr9-ETj-DBj-MGv5-S5-Yz-Ti.png"
+                    alt="Meu Supermercado em 3D"
+                    className="w-full h-auto object-contain rounded-xl shadow-[0_12px_24px_rgba(0,0,0,0.4)] transform group-hover:scale-[1.03] transition-all duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  
+                  {/* Subtle glass legend bar overlay inside the visual frame */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md border border-white/10 px-3.5 py-2.5 rounded-xl text-center">
+                    <p className="text-[10px] text-zinc-100 font-display font-bold leading-none tracking-wide">
+                      Maquete Virtual <span className="text-brand-orange">AD Equipamentos</span>
+                    </p>
+                    <p className="text-[8px] text-zinc-400 font-mono mt-1 uppercase tracking-widest">
+                      Visualização Exclusiva de Gôndolas e Frio
+                    </p>
+                  </div>
+                </div>
+
+                {/* Premium tag description */}
+                <div className="mt-4 pt-4 border-t border-white/5 text-center">
+                  <p className="text-xs text-zinc-300 leading-relaxed font-sans font-light">
+                    Desenvolvemos todo o fluxo de circulação, setorização de produtos e projeto luminotécnico sob medida para sua loja.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
